@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import PageHeaderProvider from "@/context/pageHeaderProvider";
 import MainLayoutHeader from "@/components/mainLayout/header";
 import "@/assets/style/index.scss";
+import ReactQueryProvider from "@/context/ReactQueryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,15 +18,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <PageHeaderProvider>
-        <body className={inter.className}>
+    <html lang="fa" dir="rtl">
+      <body className={inter.className} suppressHydrationWarning={true}>
+        <PageHeaderProvider>
           <MainLayoutHeader />
-          <main className="flex min-h-screen flex-col items-center justify-between">
-            {children}
+          <main>
+            <ReactQueryProvider>{children}</ReactQueryProvider>
           </main>
-        </body>
-      </PageHeaderProvider>
+        </PageHeaderProvider>
+      </body>
     </html>
   );
 }

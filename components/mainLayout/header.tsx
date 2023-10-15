@@ -6,8 +6,8 @@ export default function MainLayoutHeader() {
   const { titlePageHeader } = useContext(PageHeaderContext);
 
   return (
-    <header className="flex justify-end shadow-xl px-5 py-[14px]">
-      <h1>{titlePageHeader}</h1>
+    <header className="flex justify-start shadow-custom px-5 py-[14px]">
+      <h1 className="font-semibold">{titlePageHeader}</h1>
     </header>
   );
 }
