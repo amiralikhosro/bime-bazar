@@ -13,8 +13,22 @@ export default function CompleteProfile() {
   }, [setTitlePageHeader]);
 
   return (
-    <div className="py-8 px-5">
-      <CompleteInfoForm />
+    <div className="py-8 px-5" style={{ height: "calc(100vh - 52px)" }}>
+      {formState === "form" ? (
+        <CompleteInfoForm setFormState={setFormState} />
+      ) : (
+        <div className="relative h-full">
+          <p className="text-success-light text-xl">
+            اطلاعات شما با موفقیت ثبت شد.
+          </p>
+          <button
+            className="bg-black py-3 font-semibold text-white absolute bottom-0 left-0 px-8 "
+            onClick={() => setFormState("form")}
+          >
+            بازگشت
+          </button>
+        </div>
+      )}
     </div>
   );
 }
